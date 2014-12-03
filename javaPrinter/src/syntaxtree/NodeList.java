@@ -26,7 +26,6 @@ public class NodeList implements NodeListInterface {
    public Enumeration<Node> elements() { return nodes.elements(); }
    public Node elementAt(int i)  { return nodes.elementAt(i); }
    public int size()             { return nodes.size(); }
-   
    public void accept(visitor.Visitor v) {
       v.visit(this);
    }

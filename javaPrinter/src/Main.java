@@ -8,8 +8,6 @@ import syntaxtree.*;
 import visitor.*;
 
 public class Main {
-	
-
    public static void main(String args[]) {
       JavaParser parser;
       if (args.length == 0) {
@@ -20,8 +18,7 @@ public class Main {
       else if (args.length == 1) {
          System.err.println("JTB Pretty Printer 1.1:  Reading from file " +
                             args[0] + " . . .");
-         
-        try { parser = new JavaParser(new java.io.FileInputStream(args[0])); }
+         try { parser = new JavaParser(new java.io.FileInputStream(args[0])); }
          catch (java.io.FileNotFoundException e) {
             System.err.println("JTB Pretty Printer 1.1:  File " + args[0] +
                                " not found.");
@@ -43,7 +40,7 @@ public class Main {
          Node root = parser.CompilationUnit();
          System.err.println("JTB Pretty Printer 1.1:  Java program parsed " +
                             "successfully.");
-         
+
 /**** Memory tests--ignore this section ****
          Runtime rt = Runtime.getRuntime();
          rt.gc();
@@ -58,8 +55,6 @@ public class Main {
          //
          // Dump the source code exactly as it was read in
          //
-         
-    
          final TreeDumper dumper = new TreeDumper();
 
          System.out.println("******************");
@@ -85,9 +80,7 @@ public class Main {
          System.out.println("Print Only Methods");
          System.out.println("******************");
          dumper.printSpecials(false);
-         
-         root.accept(new DepthFirstVisitor()
-         {
+         root.accept(new DepthFirstVisitor() {
             public void visit(MethodDeclaration n) {
                dumper.startAtNextToken();
                n.f0.accept(dumper);
@@ -104,6 +97,4 @@ public class Main {
                             "during parse.");
       }
    }
-   
-   
 }

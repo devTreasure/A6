@@ -4,7 +4,6 @@
 
 package visitor;
 import syntaxtree.*;
-
 import java.util.*;
 
 /**
@@ -652,8 +651,6 @@ public interface GJVoidVisitor<A> {
     * f3 -> [ "finally" Block() ]
     */
    public void visit(TryStatement n, A argu);
-   
-   public void visit(Commenter n,A argu);
 
 }
 

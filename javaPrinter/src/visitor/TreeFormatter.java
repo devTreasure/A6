@@ -40,8 +40,8 @@ public class TreeFormatter extends DepthFirstVisitor {
     * indented one extra level.  To turn off line-wrapping, specify a
     * wrapWidth of 0.
     *
-    * @param   indentAmt   Amount of spaces per indentation level.               3 
-    * @param   wrapWidth   Wrap lines longer than wrapWidth.  0 for no wrap.     80
+    * @param   indentAmt   Amount of spaces per indentation level.
+    * @param   wrapWidth   Wrap lines longer than wrapWidth.  0 for no wrap.
     */
    public TreeFormatter(int indentAmt, int wrapWidth) {
       this.indentAmt = indentAmt;

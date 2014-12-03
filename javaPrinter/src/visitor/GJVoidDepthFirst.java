@@ -4,7 +4,6 @@
 
 package visitor;
 import syntaxtree.*;
-
 import java.util.*;
 
 /**
@@ -973,11 +972,5 @@ public class GJVoidDepthFirst<A> implements GJVoidVisitor<A> {
       n.f2.accept(this, argu);
       n.f3.accept(this, argu);
    }
-
-@Override
-public void visit(Commenter n, A argu) {
-	// TODO Auto-generated method stub
-	
-}
 
 }

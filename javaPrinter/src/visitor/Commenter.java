@@ -3,61 +3,55 @@ package visitor;
 import java.util.Enumeration;
 import java.util.Vector;
 
-import syntaxtree.MethodDeclarator;
-import syntaxtree.Node;
-import syntaxtree.NodeListInterface;
+import syntaxtree.*;
+import visitor.*;
 
+public class Commenter extends TreeDumper {
 
+	@Override
+	public void visit(MethodDeclaration n) {
 
-
-
-public class Commenter extends DepthFirstVisitor 
-	{
-	   private Vector cmdQueue = new Vector();
-
-	   public void visit(MethodDeclarator n) {
-		      n.f0.accept(this);
-		      n.f1.accept(this);
-		      if ( n.f2.present() ) {
-		         processList(n.f2);
-		      }
-		   }
-	   
-	   
-	   protected void processList(NodeListInterface n) {
-		      processList(n, null);
-		   }
-	   
-	   protected void processList(NodeListInterface n, FormatCommand cmd) {
-		      for ( Enumeration e = n.elements(); e.hasMoreElements(); ) {
-		         ((Node)e.nextElement()).accept(this);
-		         if ( cmd != null && e.hasMoreElements() )
-		            cmdQueue.addElement(cmd);
-		      }
-		   }
-		
-	}
-/*
-
-	public class commentHelper
-	{
-		
-		 int  loopCounter=10;
-		 int looper=0;
-		 
-		
-		 public  void  createAsterics()
-		 {
-				for(int i=0;i<=loopCounter;i++)
-				{
-					
-				}
-		 }
-		
-	
-
+		System.out.print("\n/*************");
+		System.out.print("\nNew method " + n.f2.f0.tokenImage);
+		System.out.print("\n*************/");
+		super.visit(n);
 	}
 
-*/
+	@Override
+	public void visit(FieldDeclaration n) {
 
+		System.out.print("\n // Class variable definition begins");
+		super.visit(n);
+		System.out.print("\n // Class variable definition ends");
+	}
 
+	@Override
+	public void visit(ConstructorDeclaration n) {
+
+		System.out.print("\n/*************");
+		System.out.print("\nNew constructor " + n.f1.tokenImage);
+		System.out.print("\n*************/");
+
+		super.visit(n);
+	}
+
+	@Override
+	public void visit(ClassDeclaration n) {
+
+		System.out.print("\n/*************");
+		System.out.print("\nNew class " + n.f1.f1.tokenImage);
+		System.out.print("\n*************\n/");
+
+		super.visit(n);
+	}
+
+	@Override
+	public void visit(NestedClassDeclaration n) {
+
+		System.out.print("\n/*************");
+		System.out.print("\nNew  nested class " + n.f1.f1.tokenImage);
+		System.out.print("\n*************/");
+		super.visit(n);
+	}
+
+}

@@ -4,7 +4,6 @@
 
 package visitor;
 import syntaxtree.*;
-
 import java.util.*;
 
 /**
@@ -963,11 +962,5 @@ public class DepthFirstVisitor implements Visitor {
       n.f2.accept(this);
       n.f3.accept(this);
    }
-
-@Override
-public void visit(Commenter n) {
-	// TODO Auto-generated method stub
-	
-}
 
 }

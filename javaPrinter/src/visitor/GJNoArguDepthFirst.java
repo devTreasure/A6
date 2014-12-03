@@ -4,7 +4,6 @@
 
 package visitor;
 import syntaxtree.*;
-
 import java.util.*;
 
 /**
@@ -1151,11 +1150,5 @@ public class GJNoArguDepthFirst<R> implements GJNoArguVisitor<R> {
       n.f3.accept(this);
       return _ret;
    }
-
-@Override
-public R visit(Commenter n) {
-	// TODO Auto-generated method stub
-	return null;
-}
 
 }

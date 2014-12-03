@@ -4,7 +4,6 @@
 
 package visitor;
 import syntaxtree.*;
-
 import java.util.*;
 
 /**
@@ -652,7 +651,5 @@ public interface GJVisitor<R,A> {
     * f3 -> [ "finally" Block() ]
     */
    public R visit(TryStatement n, A argu);
-   
-   public R visit(Commenter n,A argu);
 
 }

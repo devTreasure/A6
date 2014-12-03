@@ -4,7 +4,6 @@
 
 package visitor;
 import syntaxtree.*;
-
 import java.util.*;
 
 /**
@@ -1151,11 +1150,5 @@ public class GJDepthFirst<R,A> implements GJVisitor<R,A> {
       n.f3.accept(this, argu);
       return _ret;
    }
-
-@Override
-public R visit(Commenter n, A argu) {
-	// TODO Auto-generated method stub
-	return null;
-}
 
 }
